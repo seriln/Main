@@ -10,6 +10,5 @@ def home(request):
 def listing(request,dir):
     dir = '/home/seriln/Projects/'+dir
     os.chdir(dir)
-#   context = {'dir_content':os.getcwd(),}
     context = {'dir_content':os.listdir(dir),}
     return render(request, 'listing.html', context)
