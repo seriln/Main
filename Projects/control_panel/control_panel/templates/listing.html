@@ -1,8 +1,14 @@
 <h1>Листинг каталога {{ dir_name }}
 <ul>
+<table cellspacing="0" cellpadding="10">
+<tr><td><b>Файл</b></td><td><b>Размер</b></td><td><b>Дата изменения</b></td></tr>
 {% for item in dir_content %}
-<li>{{ item }}
-
-
+<tr><td> <a href = {{item}}>{{ item }} </a></td></tr>
 {% endfor %}
+
+{% for items in file_content %} 
+<tr><td>{{ items.name }}</td> <td>{{items.size}} байт</td> <td> {{items.modtime}} </td>  </tr>
+{% endfor %}
+
+</table>
 </ul>
