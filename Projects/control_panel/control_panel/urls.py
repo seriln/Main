@@ -8,7 +8,8 @@ from django.conf.urls.defaults import *
 urlpatterns = patterns('',
     url(r'^$', 'pages.views.home'),
 #    url(r'^Projects/', 'pages.views.listing'),
-    url(r'^Projects/(?P<dir>([a-zA-Z0-9,\-,_,\.]*/)*)$', 'pages.views.listing')
+    url(r'^Projects/(?P<dir>([a-zA-Z0-9,\-,_,\.]*/)*)$', 'pages.views.listing'),
+    url(r'^library/(books/)?$','pages.views.book'),
     # Examples:
     # url(r'^$', 'control_panel.views.home', name='home'),
     # url(r'^control_panel/', include('control_panel.foo.urls')),

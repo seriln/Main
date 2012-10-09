@@ -1,6 +1,7 @@
 # Create your views here.
 from datetime import datetime
 from django.shortcuts import render
+from library.models import Author, Book
 import os
 
 def home(request):
@@ -22,3 +23,7 @@ def listing(request,dir):
 
     context = {'dir_content':dirs,'file_content':files,}
     return render(request, 'listing.html', context)
+
+def book(request,ffff):
+    context = {'book':Book.objects.all(),}
+    return render(request, 'book.html', context)
