@@ -33,6 +33,10 @@ def bookinfo(request,N):
     context = {'bookinfo':bk, 'book_author': bk.authors.all(),}
     return render(request, 'bookinfo.html', context)
 
-def author(request,N):
+def authorinfo(request,N):
     context = {'author':Author.objects.get(id__exact=N[:-1]),}
+    return render(request, 'authorinfo.html', context)
+
+def author(request):
+    context = {'author':Author.objects.all(),}
     return render(request, 'author.html', context)
