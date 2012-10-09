@@ -1,0 +1,16 @@
+<h1>Информация по книге</h1>
+
+<p>Название: {{bookinfo}}</p>
+Авторы: {% for item in book_author %}
+<a href = {{ item.get_absolute_url }}> {{item}},  </a>
+{% endfor %}
+<p>Дата публикации: {{bookinfo.publication_date}}</p>
+<p>Издательство: {{bookinfo.publisher}} ({{ bookinfo.publisher.city}},{{bookinfo.publisher.country}})</p>
+<p>Сайт издательства: <a href = {{bookinfo.publisher.website}}>{{bookinfo.publisher.website}}</a></p>
+
+
+
+
+
+
+

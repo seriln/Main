@@ -27,3 +27,12 @@ def listing(request,dir):
 def book(request,ffff):
     context = {'book':Book.objects.all(),}
     return render(request, 'book.html', context)
+
+def bookinfo(request,N):
+    bk = Book.objects.get(id__exact=N[:-1])
+    context = {'bookinfo':bk, 'book_author': bk.authors.all(),}
+    return render(request, 'bookinfo.html', context)
+
+def author(request,N):
+    context = {'author':Author.objects.get(id__exact=N[:-1]),}
+    return render(request, 'author.html', context)

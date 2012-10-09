@@ -10,6 +10,8 @@ urlpatterns = patterns('',
 #    url(r'^Projects/', 'pages.views.listing'),
     url(r'^Projects/(?P<dir>([a-zA-Z0-9,\-,_,\.]*/)*)$', 'pages.views.listing'),
     url(r'^library/(books/)?$','pages.views.book'),
+    url(r'^library/books/(?P<N>([0-9])*/)$', 'pages.views.bookinfo'),
+    url(r'^library/authors/(?P<N>([0-9])*/)$', 'pages.views.author')
     # Examples:
     # url(r'^$', 'control_panel.views.home', name='home'),
     # url(r'^control_panel/', include('control_panel.foo.urls')),
