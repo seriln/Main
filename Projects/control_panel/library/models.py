@@ -1,4 +1,3 @@
-
 # -*- encoding: utf-8 -*-
 from django.db import models
 from datetime import datetime
@@ -17,6 +16,7 @@ class Book(models.Model):
     title = models.CharField("Название", max_length=128)
     authors = models.ManyToManyField("Author")
     publisher = models.ForeignKey("Publisher")
+    image = models.ForeignKey("BooksImage", blank=True, null=True)
     publication_date = models.DateTimeField("Дата выпуска",default = datetime.now())
     def __unicode__(self):
         return u'%s' % (self.title)
@@ -34,5 +34,8 @@ class Publisher(models.Model):
     def __unicode__(self):
         return u'%s ' % (self.title)
 
-
+class BooksImage(models.Model):
+    book_img = models.ImageField(upload_to='images')
+    big_img = models.ImageField(blank=True, null=True, upload_to='images')
+#    book = models.ForeignKey("Book")   
 
