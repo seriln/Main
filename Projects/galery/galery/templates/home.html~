@@ -6,6 +6,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html;charset=windows-1251">
     <script type="text/javascript" src="{{STATIC_URL}}jquery-1.8.3.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
     <script src="{{STATIC_URL}}galleria/galleria-1.2.8.min.js"></script>
     <script src="{{STATIC_URL}}galleria/plugins/galleria.history.min.js"></script>
     <link rel="stylesheet" href="{{STATIC_URL}}jquery-ui.css" />
@@ -36,7 +37,7 @@
 <body>
 <div id="dialog" title="Add new photo">
   
-    <form action="upload_file" method="POST">{% csrf_token %}>
+    <form action="save_to_db" method="POST">{% csrf_token %}>
     <fieldset>
         <p><label for="name">title</label></p>
         <p><input type="text" name="name" /></p>
