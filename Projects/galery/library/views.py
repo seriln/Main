@@ -12,14 +12,14 @@ def home(request):
     return render(request, 'home.html', context)
 
 def result(request):
-    n = request.POST.get('name','')
-    d = request.POST.get('desc','')
-    img = request.POST.get('file','')
-    newItem = Image(name = n, definition = d, image=img)
-    newItem.save()
-
     if request.method == 'POST':
-        form = Image(request.POST, request.FILES)
+        n = request.POST.get('name','')
+        d = request.POST.get('desc','')
+        img = request.POST.get('file','')
+        newItem = Image(name = n, definition = d, image=img)
+        newItem.save()
+   
+      
         handle_uploaded_file(request.FILES['file'])
     return render(request,'result.html')
 

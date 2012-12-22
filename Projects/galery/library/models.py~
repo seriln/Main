@@ -6,8 +6,8 @@ from datetime import datetime
 class Image(models.Model):
     name = models.CharField("Название", max_length=32)
     definition = models.CharField("Описание", max_length=256)
-    image = models.ImageField(upload_to='images')
+    image = models.CharField("Имя", max_length=256)
     def __unicode__(self):
-        return u'%s %s' % (self.name)
+        return u'%s %s' % (self.name,self.definition)
     def get_absolute_url(self):
         return "/library/authors/%i" % self.id
