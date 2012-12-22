@@ -5,11 +5,11 @@
 <html lang="en">
 <head>
     <meta http-equiv="Content-Type" content="text/html;charset=windows-1251">
-    <script type="text/javascript" src="{{STATIC_URL}}jquery-1.8.3.js"></script>
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css" />
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
+    <script type="text/javascript" src="{{STATIC_URL}}jquery-1.8.3.js"></script>
     <script src="{{STATIC_URL}}galleria/galleria-1.2.8.min.js"></script>
     <script src="{{STATIC_URL}}galleria/plugins/galleria.history.min.js"></script>
-    <link rel="stylesheet" href="{{STATIC_URL}}jquery-ui.css" />
     <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
    
    
@@ -31,39 +31,36 @@
    
 <style>
     #galleria{ width: 100%;  height: 600px; background: #000 }
+    button{ background: #999;}
 </style>
 
 </head>
 <body>
-<div id="dialog" title="Add new photo">
+<div id="dialog" title="Add new photo" >
   
-    <form enctype="multipart/form-data" action="save_to_db" method="POST">{% csrf_token %}>
+    <form enctype="multipart/form-data" action="save_to_db" method="POST"  style="width: 100%;">{% csrf_token %}
     <fieldset>
-        <p><label for="name">title</label></p>
+        <p><label for="name">Название:</label></p>
         <p><input type="text" name="name" /></p>
        
-	<p> <label for="desc">description</label></p>
+	<p> <label for="desc">Описание:</label></p>
       <p>  <input type="text" name="desc"/></p>
 	
 	
-      <p>  <input type = "file" name = "file"/> </p>
+      <p>  <input type = "file" name = "file" required/> </p>
     </fieldset>
-	<input type="submit" value="confirm">
+	<input type="submit" value="Добавить в галерею!">
     </form>
 </div>
 
 
-<button id="add">Add photo
-</button>
+<button id="add" >Добавить изображение в галерею</button>
 
 <div id="galleria">
-
-	
-  
+    {% for item in images %}
+        <img src='{{STATIC_URL}}images/{{item.image}}' title="<h2><strong> {{item.name}}</strong></h2><em>{{item.definition}}</em>">
+    {% endfor %}
 </div>
-
-
-
 
 <script>
     Galleria.loadTheme('{{STATIC_URL}}galleria/themes/classic/galleria.classic.min.js');

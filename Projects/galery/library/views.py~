@@ -15,7 +15,8 @@ def result(request):
     if request.method == 'POST':
         n = request.POST.get('name','')
         d = request.POST.get('desc','')
-        img = request.POST.get('file','')
+        img = request.FILES['file'].name
+        print "The file is :"+img
         newItem = Image(name = n, definition = d, image=img)
         newItem.save()
    
