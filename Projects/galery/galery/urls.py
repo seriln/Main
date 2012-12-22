@@ -6,7 +6,7 @@ from django.conf.urls import patterns, include, url
 
 urlpatterns = patterns('',
     url(r'^$', 'library.views.home'),
-    url(r'^save_to_db$','library.views.upload_file'),
+    url(r'^save_to_db$','library.views.result'),
     # Examples:
     # url(r'^$', 'galery.views.home', name='home'),
     # url(r'^galery/', include('galery.foo.urls')),

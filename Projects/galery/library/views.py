@@ -17,18 +17,14 @@ def result(request):
     img = request.POST.get('file','')
     newItem = Image(name = n, definition = d, image=img)
     newItem.save()
-    return render(request,'result.html')
 
-
-def upload_file(request):
     if request.method == 'POST':
         form = Image(request.POST, request.FILES)
         handle_uploaded_file(request.FILES['file'])
     return render(request,'result.html')
-     
 
 def handle_uploaded_file(f):
-    destination = open('/images'+f.name, 'wb+')
+    destination = open('./galery/media/images/'+f.name, 'wb+')
     for chunk in f.chunks():
         destination.write(chunk)
     destination.close()
