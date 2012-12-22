@@ -37,7 +37,7 @@
 <body>
 <div id="dialog" title="Add new photo">
   
-    <form action="save_to_db" method="POST">{% csrf_token %}>
+    <form enctype="multipart/form-data" action="save_to_db" method="POST">{% csrf_token %}>
     <fieldset>
         <p><label for="name">title</label></p>
         <p><input type="text" name="name" /></p>

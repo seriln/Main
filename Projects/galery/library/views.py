@@ -8,7 +8,7 @@ from django.shortcuts import render_to_response
 
 
 def home(request):
-    context={'images':Image.objects.get(id__exact=1),}
+    context={'images':Image.objects.all(),}
     return render(request, 'home.html', context)
 
 def result(request):
