@@ -1,0 +1,14 @@
+#galleria
+{
+	width: 100%; 
+	height: 600px;
+	background: #000
+}
+.file
+{
+	width: 225px;
+}
+button
+{
+	background: #999;
+}
